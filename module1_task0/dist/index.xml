@@ -5,16 +5,6 @@
     <link>http://example.org/</link>
     <description>Recent content on Awesome Inc.</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 08 Jan 2023 16:18:31 -0300</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Welcome to Awesome Inc.</title>
-      <link>http://example.org/posts/welcome/</link>
-      <pubDate>Sun, 08 Jan 2023 16:18:31 -0300</pubDate>
-      
-      <guid>http://example.org/posts/welcome/</guid>
-      <description></description>
-    </item>
-    
+    <language>en-us</language><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
