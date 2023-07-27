@@ -1,5 +1,5 @@
 build:
-	hugo
+	hugo -d dist
 
 clean:
 	rm -rf dist/*
