@@ -1,10 +1,3 @@
-# Variables
-POST_TITLE = "New Blog Post"
-POST_NAME = "new-blog-post"
-
-# Targets
-.PHONY: build clean post
-
 build:
 	hugo -d dist
 
