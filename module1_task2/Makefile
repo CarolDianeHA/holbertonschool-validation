@@ -2,6 +2,7 @@ build:
 	hugo -d dist
 
 clean:
+## Delete dist folder
 	rm -rf dist/*
 
 post:
