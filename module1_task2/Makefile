@@ -1,4 +1,4 @@
-build:
+build: ## Build hugo website
 	hugo -d dist
 
 clean: ## Delete dist folder
