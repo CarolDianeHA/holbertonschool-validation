@@ -9,3 +9,4 @@
 * The “Build” step should be executed by the command `make build`
 * “Clean” by `make clean`
 * “Post” by `make POST_NAME=who-are-we POST_TITLE="Who are we" post`
+* "Help" by 'make help'
