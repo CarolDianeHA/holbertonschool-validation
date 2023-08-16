@@ -1,5 +1,7 @@
-build: ## Generates site
+build: ## Compile the source code of the application to a binary name file using tje command go build
 	hugo
+	make lint
+	go build 
 
 post: ## Creates new post
 	hugo new posts/$(POST_NAME).md
