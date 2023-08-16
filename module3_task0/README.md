@@ -15,3 +15,11 @@
 * lint: reads the source code. Must always be called before the goal build, to avoid compiling the code if the linter fails.
 * unit-tests: The goal unit-tests should be implemented and should execute (successfully) the Golang unit tests.
 * integration-tests: should be implemented and should execute (successfully) the Golang integration tests.
+
+## Workflow
+
+Triggered on:
+* Code push
+* Daily
+* Does stuff
+* Manual Option
