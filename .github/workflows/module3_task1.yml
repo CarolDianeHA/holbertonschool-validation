@@ -1,4 +1,4 @@
-name: Module 3 Task 1 Workflow
+name: module3_task1
 
 on:
     push:
