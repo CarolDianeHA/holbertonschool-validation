@@ -27,7 +27,8 @@ jobs:
 
       - name: build
         run: |
-          pwd && ls
+          cd ./module3_task1/
+          make build
 
       - name: help
         run: |
@@ -42,4 +43,3 @@ jobs:
         run: |
           cd ./module3_task1/
           make clean
-          ls
