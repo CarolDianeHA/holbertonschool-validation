@@ -36,7 +36,6 @@ jobs:
       - name: post
         run: |
           make post POST_NAME=who-are-we POST_TITLE="Who are we" post
-        working-directory: ./module3_task1/
 
       - name: clean
         run: |
