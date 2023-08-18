@@ -37,7 +37,7 @@ jobs:
       - name: post
         run: |
           cd ./module3_task1/
-          make post POST_NAME=who-are-we POST_TITLE="Who are we"
+          make post POST_NAME=who-are-we POST_TITLE="Who are we" post
 
       - name: clean
         run: |
