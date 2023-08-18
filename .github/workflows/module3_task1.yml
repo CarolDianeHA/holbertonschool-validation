@@ -30,6 +30,9 @@ jobs:
         run: |
           make -C ${{ github.workspace }}/module3_task1/ help
 
+      - name: Install Hugo
+        run: sudo apt-get install hugo
+        
       - name: post
         run: |
           make post POST_NAME=who-are-we POST_TITLE="Who are we" post

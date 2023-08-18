@@ -4,8 +4,8 @@ build: ## Compile the source code of the application to a binary name file using
 	go build
 
 post: ## Creates new post
-	hugo new posts/$(POST_NAME).md
-	sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
+    /path/to/hugo new posts/$(POST_NAME).md
+    sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
 
 clean: ## Cleans `dist` folder
 	rm -rf dist/*
