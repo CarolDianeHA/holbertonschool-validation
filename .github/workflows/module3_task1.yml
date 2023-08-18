@@ -19,13 +19,20 @@ jobs:
       - name: Validate Makefile
         run: cd ./module3_task1/ && make help
 
-      - name: Build and Validate
+      - name: build
         run: |
-          pwd
-          ls
-          sudo ./module3_task1/setup.sh
+          pwd && ls
+
+      - name: make-help
+        run: |
           make help
+      - name: make-build
+        run: |
           make build
+      - name: make-post
+        run: |
           make POST_NAME=who-are-we POST_TITLE="Who are we" post
+      - name: make-clean
+        run: |
           make clean
           ls
