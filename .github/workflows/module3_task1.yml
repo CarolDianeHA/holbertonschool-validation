@@ -28,7 +28,7 @@ jobs:
 
       - name: help
         run: |
-          make help
+          make -C ${{ github.workspace }}/module3_task1/ help
 
       - name: build
         run: |
