@@ -16,6 +16,9 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
+      - name: Set bash shell
+        run: echo "SHELL=/bin/bash" >> $GITHUB_ENV
+
       - name: Validate Makefile
         run: cd ./module3_task1/ && make help
 
