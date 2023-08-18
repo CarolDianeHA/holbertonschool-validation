@@ -35,9 +35,8 @@ jobs:
         
       - name: post
         run: |
-          cd ./module3_task1/  # Navigate to the correct directory
+          cd ./module3_task1/
           make post POST_NAME=who-are-we POST_TITLE="Who are we"
-        working-directory: ./module3_task1/
 
       - name: clean
         run: |
