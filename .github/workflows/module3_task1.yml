@@ -30,13 +30,6 @@ jobs:
         run: |
           make -C ${{ github.workspace }}/module3_task1/ help
 
-      - name: Install Hugo
-        run: sudo snap install hugo --channel=extended
-
-      - name: build
-        run: |
-          make -C ${{ github.workspace }}/module3_task1/ build
-
       - name: post
         run: |
           make post POST_NAME=who-are-we POST_TITLE="Who are we" post

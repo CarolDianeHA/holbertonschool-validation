@@ -12,6 +12,3 @@ clean: ## Cleans `dist` folder
 
 help: ## Shows available targets and descriptions
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
-
-build: ## Compile the source code of the application to a binary name file using the command go build
-    /snap/bin/hugo
