@@ -32,7 +32,7 @@ jobs:
 
       - name: build
         run: |
-          make build
+          make -C ${{ github.workspace }}/module3_task1/ build
 
       - name: post
         run: |
