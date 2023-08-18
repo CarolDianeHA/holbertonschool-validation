@@ -2,8 +2,12 @@ build: ## Compile the source code of the application to a binary name file using
 	hugo
 
 post: ## Creates new post
-	hugo new content/posts/$(POST_NAME).md
-	sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
+	if [ -f content/posts/$(POST_NAME).md ]; then \
+		echo "Post file already exists"; \
+	else \
+		hugo new content/posts/$(POST_NAME).md; \
+		sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md; \
+	fi
 
 clean: ## Cleans `dist` folder
 	rm -rf dist/*
