@@ -23,16 +23,19 @@ jobs:
         run: |
           pwd && ls
 
-      - name: make-help
+      - name: help
         run: |
           make help
-      - name: make-build
+
+      - name: build
         run: |
           make build
-      - name: make-post
+
+      - name: post
         run: |
-          make POST_NAME=who-are-we POST_TITLE="Who are we" post
-      - name: make-clean
+          make post POST_NAME=who-are-we POST_TITLE="Who are we" post
+
+      - name: clean
         run: |
           make clean
           ls
