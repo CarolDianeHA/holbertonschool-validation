@@ -40,5 +40,6 @@ jobs:
 
       - name: clean
         run: |
+          cd ./module3_task1/
           make clean
           ls
