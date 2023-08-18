@@ -3,6 +3,9 @@ build: ## Compile the source code of the application to a binary name file using
 	make lint
 	go build
 
+lint: ## Run linting checks
+    make lint
+
 post: ## Creates new post
 	hugo new posts/$(POST_NAME).md
 	sed -i 's/title: .*/title: "$(POST_TITLE)"/' content/posts/$(POST_NAME).md
