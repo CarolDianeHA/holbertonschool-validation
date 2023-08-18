@@ -19,6 +19,9 @@ jobs:
       - name: Set bash shell
         run: echo "SHELL=/bin/bash" >> $GITHUB_ENV
 
+      - name: Install Hugo
+        run: sudo apt-get install hugo
+
       - name: Validate Makefile
         run: cd ./module3_task1/ && make help
 
@@ -29,9 +32,6 @@ jobs:
       - name: help
         run: |
           make -C ${{ github.workspace }}/module3_task1/ help
-
-      - name: Install Hugo
-        run: sudo apt-get install hugo
         
       - name: post
         run: |
