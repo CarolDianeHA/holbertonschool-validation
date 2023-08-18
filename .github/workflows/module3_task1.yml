@@ -25,7 +25,7 @@ jobs:
 
       - name: make-help
         run: |
-          make
+          make help
       - name: make-build
         run: |
           make build

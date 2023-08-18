@@ -8,5 +8,5 @@ post: ## Creates new post
 clean: ## Cleans `dist` folder
 	rm -rf dist/*
 
-help: ## Shows available targets and descriptions
+make: ## Shows available targets and descriptions
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
