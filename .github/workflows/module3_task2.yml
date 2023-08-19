@@ -1,0 +1,55 @@
+---
+name: module3_task1
+
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set bash shell
+        run: echo "SHELL=/bin/bash" >> $GITHUB_ENV
+
+      - name: Install Hugo
+        run: sudo apt-get install hugo
+
+      - name: Setup Hugo
+        run: |
+          cd module3_task1/
+          sudo ./setup.sh
+
+      - name: Validate Makefile
+        run: cd ./module3_task1/ && make help
+
+      - name: build
+        run: |
+          cd ./module3_task1/
+          make build
+
+      - name: help
+        run: |
+          make -C ${{ github.workspace }}/module3_task1/ help
+
+      - name: post
+        run: |
+          cd ./module3_task1/
+          make post POST_NAME=who-are-we POST_TITLE="Who are we" post
+
+      - name: clean
+        run: |
+          cd ./module3_task1/
+          make clean
+        
+      - name: make package
+        run: |
+          make package
