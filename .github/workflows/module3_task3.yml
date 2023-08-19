@@ -8,6 +8,10 @@ on:
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to run on'
+        required: false
 
 jobs:
   validate:
@@ -67,7 +71,8 @@ jobs:
         run: |
           release_version="${GITHUB_REF#refs/tags/}"
           echo "Creating GitHub Release: $release_version"
-          curl -X POST "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases" \
+          curl -X POST
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases" \
             -H "Authorization: Bearer $GITHUB_TOKEN" \
             -d "{\"tag_name\":\"$release_version\",\"draft\":false}" \
             | tee release_info.json
@@ -78,7 +83,8 @@ jobs:
           echo "Uploading awesome-website.zip..."
           curl -X POST "$upload_url?name=awesome-website.zip" \
             -H "Authorization: Bearer $GITHUB_TOKEN" \
-            -H "Content-Type: $(file -b --mime-type ./module3_task3/awesome-website.zip)" \
+            -H "Content-Type: $(file -b --mime-type
+            ./module3_task3/awesome-website.zip)" \
             --data-binary "@./module3_task3/awesome-website.zip"
 
       - name: clean
