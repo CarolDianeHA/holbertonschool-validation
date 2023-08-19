@@ -29,3 +29,6 @@ unit-tests: ## Runs unit-test
 
 integration-tests: ##  execute (successfully) the Golang integration tests
 	go test -v -coverprofile=coverage-integrations.out
+
+validate: ## Tests dir
+	pwd

@@ -57,6 +57,7 @@ jobs:
           make unit-tests
           make integration-tests
           make package
+          make validate
           make clean
 
       - name: clean
