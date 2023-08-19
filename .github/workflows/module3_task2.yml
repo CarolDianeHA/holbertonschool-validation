@@ -44,7 +44,7 @@ jobs:
 
       - name: help
         run: |
-          make -C ${{ github.workspace }}/module3_task1/ help
+          make -C ${{ github.workspace }}/module3_task2/ help
 
       - name: post
         run: |
