@@ -20,4 +20,4 @@ Triggered on:
 * Code push
 * Daily
 * Does stuff
-* Manual Option
+* And Manual Option
