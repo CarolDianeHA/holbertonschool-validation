@@ -5,8 +5,6 @@ on:
   push:
     branches:
       - main
-    tags:
-      - 'v*'  # Match version tags like 'v1.0.0'
   schedule:
     - cron: "0 0 * * *"
   workflow_dispatch:
@@ -16,7 +14,51 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      # ... Previous steps
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set bash shell
+        run: echo "SHELL=/bin/bash" >> $GITHUB_ENV
+
+      - name: Install Hugo
+        run: sudo apt-get install hugo
+
+      - name: Setup Hugo
+        run: |
+          cd module3_task2/
+          sudo ./setup.sh
+
+      - name: lint
+        run: |
+          cd ./module3_task2/
+          make lint
+
+      - name: Validate Makefile
+        run: cd ./module3_task2/ && make help
+
+      - name: build
+        run: |
+          cd ./module3_task2/
+          make build
+          make package
+
+      - name: help
+        run: |
+          make -C ${{ github.workspace }}/module3_task2/ help
+
+      - name: post
+        run: |
+          cd ./module3_task2/
+          make post POST_NAME=who-are-we POST_TITLE="Who are we" post
+
+      - name: Integration test
+        run: |
+          cd ./module3_task2/
+          make unit-tests
+          make integration-tests
+          make package
+          make validate
+          make clean
 
       - name: Create Release
         if: startsWith(github.ref, 'refs/tags/v')
