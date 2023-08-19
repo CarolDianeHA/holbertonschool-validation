@@ -1,3 +1,4 @@
+---
 name: module3_task1
 
 on:
@@ -33,7 +34,7 @@ jobs:
       - name: help
         run: |
           make -C ${{ github.workspace }}/module3_task1/ help
-        
+
       - name: post
         run: |
           cd ./module3_task1/
