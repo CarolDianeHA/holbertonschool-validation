@@ -66,28 +66,20 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           release_version="${GITHUB_REF#refs/tags/}"
-          release_name="Release $release_version"
-          release_body=$(cat ./module3_task3/DEPLOY.md)
-          echo "Creating GitHub Release: $release_name"
-          response=$(curl -s --request POST \
-            --url "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases" \
-            --header "Authorization: Bearer ${GITHUB_TOKEN}" \
-            --data '{
-              "tag_name": "'"${release_version}"'",
-              "name": "'"${release_name}"'",
-              "body": "'"${release_body}"'",
-              "draft": false,
-              "prerelease": false
-            }')
-          upload_url=$(echo "$response" | jq -r .upload_url | cut -d "{" -f 1)
+          echo "Creating GitHub Release: $release_version"
+          curl -X POST "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases" \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -d "{\"tag_name\":\"$release_version\",\"draft\":false}" \
+            | tee release_info.json
+
+          upload_url=$(jq -r '.upload_url' release_info.json | cut -d "{" -f 1)
           echo "Upload URL: $upload_url"
 
           echo "Uploading awesome-website.zip..."
-          curl -s -X POST \
-            -H "Authorization: Bearer ${GITHUB_TOKEN}" \
-            -H "Content-Type: application/zip" \
-            --data-binary "@./module3_task3/awesome-website.zip" \
-            "$upload_url?name=awesome-website.zip"
+          curl -X POST "$upload_url?name=awesome-website.zip" \
+            -H "Authorization: Bearer $GITHUB_TOKEN" \
+            -H "Content-Type: $(file -b --mime-type ./module3_task3/awesome-website.zip)" \
+            --data-binary "@./module3_task3/awesome-website.zip"
 
       - name: clean
         run: |
