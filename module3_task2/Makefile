@@ -27,3 +27,5 @@ unit-tests: ## Runs unit-test
 	make build
 	make clean
 
+integration-tests: ##  execute (successfully) the Golang integration tests
+	go test -v -coverprofile=coverage-integrations.out
