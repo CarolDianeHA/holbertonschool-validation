@@ -25,7 +25,7 @@ jobs:
 
       - name: Setup Hugo
         run: |
-          cd module3_task1/
+          cd module3_task2/
           sudo ./setup.sh
 
       - name: Validate Makefile
@@ -52,5 +52,4 @@ jobs:
         
       - name: make package
         run: |
-          make build
           make package
