@@ -10,6 +10,9 @@
 * help: prints out the list of commands in makefile and their usage.
 * package: Build the awesome-website.zip archive.
 * lint: Shellcheck
+* unit-tests: Runs unit-test
+* integration-tests: execute (successfully) the Golang integration tests
+* validate: Tests directory
 
 ## Workflow
 
