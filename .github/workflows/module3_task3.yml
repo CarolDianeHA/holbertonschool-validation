@@ -1,3 +1,4 @@
+---
 name: module3_task3
 
 on:
@@ -46,7 +47,7 @@ jobs:
             --data-binary "@./module3_task3/awesome-website.zip" \
             "$upload_url?name=awesome-website.zip"
 
-      - name: Cleanup
+      - name: clean
         run: |
           cd ./module3_task3/
           make clean
