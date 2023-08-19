@@ -54,7 +54,7 @@ jobs:
       - name: Integration test
         run: |
           cd ./module3_task2/
-          make unit-test
+          make unit-tests
           make package
           make clean
 

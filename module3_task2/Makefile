@@ -22,7 +22,7 @@ package: ## Build the awesome-website.zip archive.
 lint: ## shellcheck setup
 	$(SHELLCHECK) setup.sh > /dev/null 2>&1 || echo "Lint Failed"
 
-unit-test: ## Runs unit-test
+unit-tests: ## Runs unit-test
 	make POST_TITLE='TEST' POST_NAME='this-is-a-test' post
 	make build
 	make clean
