@@ -56,7 +56,7 @@ jobs:
           cd ./module3_task2/
           make unit-test
           make package
-          make clean          
+          make clean
 
       - name: clean
         run: |
