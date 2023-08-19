@@ -64,28 +64,12 @@ jobs:
           make validate
           make clean
 
-      - name: Create Release
+      - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          release_version="${GITHUB_REF#refs/tags/}"
-          echo "Creating GitHub Release: $release_version"
-          curl -X POST
-            "https://api.github.com/repos/${GITHUB_REPOSITORY}/releases" \
-            -H "Authorization: Bearer $GITHUB_TOKEN" \
-            -d "{\"tag_name\":\"$release_version\",\"draft\":false}" \
-            | tee release_info.json
-
-          upload_url=$(jq -r '.upload_url' release_info.json | cut -d "{" -f 1)
-          echo "Upload URL: $upload_url"
-
-          echo "Uploading awesome-website.zip..."
-          curl -X POST "$upload_url?name=awesome-website.zip" \
-            -H "Authorization: Bearer $GITHUB_TOKEN" \
-            -H "Content-Type: $(file -b --mime-type
-            ./module3_task3/awesome-website.zip)" \
-            --data-binary "@./module3_task3/awesome-website.zip"
+        uses: softprops/action-gh-release@v1
+        with:
+          files: ./module3_task3/awesome-website.zip
+          tag_name: ${{ github.ref }}
 
       - name: clean
         run: |
