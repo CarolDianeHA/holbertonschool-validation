@@ -16,5 +16,5 @@ help: ## Shows available targets and descriptions
 	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'##
 
 package: ## Build the awesome-website.zip archive.
-	@zip -r awesome-website.zip ./dist/*
+	zip -r awesome-website.zip dist/
 

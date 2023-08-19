@@ -52,4 +52,5 @@ jobs:
         
       - name: make package
         run: |
+          make build
           make package
