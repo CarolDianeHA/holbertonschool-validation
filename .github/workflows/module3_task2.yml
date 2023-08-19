@@ -1,5 +1,5 @@
 ---
-name: module3_task1
+name: module3_task2
 
 on:
   push:
@@ -29,11 +29,11 @@ jobs:
           sudo ./setup.sh
 
       - name: Validate Makefile
-        run: cd ./module3_task1/ && make help
+        run: cd ./module3_task2/ && make help
 
       - name: build
         run: |
-          cd ./module3_task1/
+          cd ./module3_task2/
           make build
 
       - name: help
@@ -42,12 +42,12 @@ jobs:
 
       - name: post
         run: |
-          cd ./module3_task1/
+          cd ./module3_task2/
           make post POST_NAME=who-are-we POST_TITLE="Who are we" post
 
       - name: clean
         run: |
-          cd ./module3_task1/
+          cd ./module3_task2/
           make clean
         
       - name: make package
