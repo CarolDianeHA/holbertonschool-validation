@@ -28,6 +28,11 @@ jobs:
           cd module3_task2/
           sudo ./setup.sh
 
+      - name: lint
+        run: |
+          cd ./module3_task2/
+          make link
+
       - name: Validate Makefile
         run: cd ./module3_task2/ && make help
 

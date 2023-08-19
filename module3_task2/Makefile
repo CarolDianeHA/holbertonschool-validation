@@ -19,3 +19,6 @@ package: ## Build the awesome-website.zip archive.
 	make build
 	zip awesome-website.zip dist/
 
+lint: ## shellcheck setup
+	$(SHELLCHECK) setup.sh > /dev/null 2>&1 || echo "Lint Failed"
+
