@@ -51,6 +51,13 @@ jobs:
           cd ./module3_task2/
           make post POST_NAME=who-are-we POST_TITLE="Who are we" post
 
+      - name: Integration test
+        run: |
+          cd ./moudle3_task2/
+          make unit-test
+          make package
+          make clean          
+
       - name: clean
         run: |
           cd ./module3_task2/
