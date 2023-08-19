@@ -31,7 +31,7 @@ jobs:
       - name: lint
         run: |
           cd ./module3_task2/
-          make link
+          make lint
 
       - name: Validate Makefile
         run: cd ./module3_task2/ && make help

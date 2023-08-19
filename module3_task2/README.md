@@ -9,6 +9,7 @@
 * clean: Cleanup the content of the directory dist and delete the binary awesome-api and the log file awesome-api.log.
 * help: prints out the list of commands in makefile and their usage.
 * package: Build the awesome-website.zip archive.
+* lint: Shellcheck
 
 ## Workflow
 
