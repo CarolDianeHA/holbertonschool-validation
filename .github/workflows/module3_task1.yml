@@ -23,6 +23,11 @@ jobs:
       - name: Install Hugo
         run: sudo apt-get install hugo
 
+      - name: Setup Hugo
+        run: |
+          cd module3_task1/
+          sudo ./setup.sh
+
       - name: Validate Makefile
         run: cd ./module3_task1/ && make help
 
