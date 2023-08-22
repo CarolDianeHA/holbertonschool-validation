@@ -29,16 +29,16 @@ jobs:
 
       - name: Setup Hugo
         run: |
-          cd module3_task2/
+          cd module3_task3/
           sudo ./setup.sh
 
       - name: lint
         run: |
-          cd ./module3_task2/
+          cd ./module3_task3/
           make lint
 
       - name: Validate Makefile
-        run: cd ./module3_task2/ && make help
+        run: cd ./module3_task3/ && make help
 
       - name: build
         run: |
@@ -51,12 +51,12 @@ jobs:
 
       - name: post
         run: |
-          cd ./module3_task2/
+          cd ./module3_task3/
           make post POST_NAME=who-are-we POST_TITLE="Who are we" post
 
       - name: Integration test
         run: |
-          cd ./module3_task2/
+          cd ./module3_task3/
           make unit-tests
           make integration-tests
           make package
